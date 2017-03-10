@@ -1,0 +1,507 @@
+name: "Res_Deconv"
+input: "data"
+input_dim: 1
+input_dim: 3
+input_dim: 41
+input_dim: 41
+
+layer {
+	bottom: "data"
+	top: "conv1"
+	name: "conv1"
+	type: "Convolution"
+	param {
+      lr_mult: 1
+    }
+    param {
+      lr_mult: 0.1
+    }
+    convolution_param {
+      num_output: 32
+      kernel_w: 3
+      kernel_h: 3
+      stride: 1
+      pad_w: 1
+      pad_h: 1
+      weight_filler {
+        type: "gaussian"
+        std: 0.1
+      }
+      bias_filler {
+        type: "constant"
+        value: 0
+    }
+  }
+}
+
+layer {
+	top: "conv1_relu"
+	bottom: "conv1"
+	name: "conv1_relu"
+	type: "PReLU"
+}
+
+layer {
+	bottom: "conv1_relu"
+	top: "conv2"
+	name: "conv2"
+	type: "Convolution"
+	param {
+      lr_mult: 1
+    }
+    param {
+      lr_mult: 0.1
+    }
+    convolution_param {
+      num_output: 32
+      kernel_w: 3
+      kernel_h: 3
+      stride: 1
+      pad_w: 1
+      pad_h: 1
+      weight_filler {
+        type: "gaussian"
+        std: 0.1
+      }
+      bias_filler {
+        type: "constant"
+        value: 0
+    }
+  }
+}
+
+layer {
+	bottom: "conv1"
+	bottom: "conv2"
+	top: "sum2"
+	name: "sum2"
+	type: "Eltwise"
+	eltwise_param {
+      operation: SUM
+    }
+}
+
+layer {
+	top: "sum2_relu"
+	bottom: "sum2"
+	name: "sum2_relu"
+	type: "PReLU"
+}
+
+layer {
+	bottom: "sum2_relu"
+	top: "conv3"
+	name: "conv3"
+	type: "Convolution"
+	param {
+      lr_mult: 1
+    }
+    param {
+      lr_mult: 0.1
+    }
+    convolution_param {
+      num_output: 32
+      kernel_w: 3
+      kernel_h: 3
+      stride: 1
+      pad_w: 1
+      pad_h: 1
+      weight_filler {
+        type: "gaussian"
+        std: 0.1
+      }
+      bias_filler {
+        type: "constant"
+        value: 0
+    }
+  }
+}
+
+layer {
+	bottom: "sum2"
+	bottom: "conv3"
+	top: "sum3"
+	name: "sum3"
+	type: "Eltwise"
+	eltwise_param {
+      operation: SUM
+    }
+}
+
+layer {
+	top: "sum3_relu"
+	bottom: "sum3"
+	name: "sum3_relu"
+	type: "PReLU"
+}
+
+layer {
+	bottom: "sum3_relu"
+	top: "conv4"
+	name: "conv4"
+	type: "Convolution"
+	param {
+      lr_mult: 1
+    }
+    param {
+      lr_mult: 0.1
+    }
+    convolution_param {
+      num_output: 32
+      kernel_w: 3
+      kernel_h: 3
+      stride: 1
+      pad_w: 1
+      pad_h: 1
+      weight_filler {
+        type: "gaussian"
+        std: 0.1
+      }
+      bias_filler {
+        type: "constant"
+        value: 0
+    }
+  }
+}
+
+
+layer {
+	bottom: "sum3"
+	bottom: "conv4"
+	top: "sum4"
+	name: "sum4"
+	type: "Eltwise"
+	eltwise_param {
+      operation: SUM
+    }
+}
+
+layer {
+	top: "sum4_relu"
+	bottom: "sum4"
+	name: "sum4_relu"
+	type: "PReLU"
+}
+
+layer {
+	bottom: "sum4_relu"
+	top: "conv5"
+	name: "conv5"
+	type: "Convolution"
+	param {
+      lr_mult: 1
+    }
+    param {
+      lr_mult: 0.1
+    }
+    convolution_param {
+      num_output: 32
+      kernel_w: 3
+      kernel_h: 3
+      stride: 1
+      pad_w: 1
+      pad_h: 1
+      weight_filler {
+        type: "gaussian"
+        std: 0.1
+      }
+      bias_filler {
+        type: "constant"
+        value: 0
+    }
+  }
+}
+
+
+layer {
+	bottom: "sum4"
+	bottom: "conv5"
+	top: "sum5"
+	name: "sum5"
+	type: "Eltwise"
+	eltwise_param {
+      operation: SUM
+    }
+}
+
+layer {
+	top: "sum5_relu"
+	bottom: "sum5"
+	name: "sum5_relu"
+	type: "PReLU"
+}
+
+layer {
+	bottom: "sum5_relu"
+	top: "conv6"
+	name: "conv6"
+	type: "Convolution"
+	param {
+      lr_mult: 1
+    }
+    param {
+      lr_mult: 0.1
+    }
+    convolution_param {
+      num_output: 32
+      kernel_w: 3
+      kernel_h: 3
+      stride: 1
+      pad_w: 1
+      pad_h: 1
+      weight_filler {
+        type: "gaussian"
+        std: 0.1
+      }
+      bias_filler {
+        type: "constant"
+        value: 0
+    }
+  }
+}
+
+
+layer {
+	bottom: "sum5"
+	bottom: "conv6"
+	top: "sum6"
+	name: "sum6"
+	type: "Eltwise"
+	eltwise_param {
+      operation: SUM
+    }
+}
+
+layer {
+	top: "sum6_relu"
+	bottom: "sum6"
+	name: "sum6_relu"
+	type: "PReLU"
+}
+
+layer {
+	bottom: "sum6_relu"
+	top: "conv7"
+	name: "conv7"
+	type: "Convolution"
+	param {
+      lr_mult: 1
+    }
+    param {
+      lr_mult: 0.1
+    }
+    convolution_param {
+      num_output: 32
+      kernel_w: 3
+      kernel_h: 3
+      stride: 1
+      pad_w: 1
+      pad_h: 1
+      weight_filler {
+        type: "gaussian"
+        std: 0.1
+      }
+      bias_filler {
+        type: "constant"
+        value: 0
+    }
+  }
+}
+
+layer {
+	bottom: "sum6"
+	bottom: "conv7"
+	top: "sum7"
+	name: "sum7"
+	type: "Eltwise"
+	eltwise_param {
+      operation: SUM
+    }
+}
+
+layer {
+	top: "sum7_relu"
+	bottom: "sum7"
+	name: "sum7_relu"
+	type: "PReLU"
+}
+
+layer {
+	bottom: "sum7_relu"
+	top: "conv8"
+	name: "conv8"
+	type: "Convolution"
+	param {
+      lr_mult: 1
+    }
+    param {
+      lr_mult: 0.1
+    }
+    convolution_param {
+      num_output: 32
+      kernel_w: 3
+      kernel_h: 3
+      stride: 1
+      pad_w: 1
+      pad_h: 1
+      weight_filler {
+        type: "gaussian"
+        std: 0.1
+      }
+      bias_filler {
+        type: "constant"
+        value: 0
+    }
+  }
+}
+
+layer {
+	bottom: "sum7"
+	bottom: "conv8"
+	top: "sum8"
+	name: "sum8"
+	type: "Eltwise"
+	eltwise_param {
+      operation: SUM
+    }
+}
+
+
+layer {
+	top: "sum8_relu"
+	bottom: "sum8"
+	name: "sum8_relu"
+	type: "PReLU"
+}
+
+layer {
+	bottom: "sum8_relu"
+	top: "conv9"
+	name: "conv9"
+	type: "Convolution"
+	param {
+      lr_mult: 1
+    }
+    param {
+      lr_mult: 0.1
+    }
+    convolution_param {
+      num_output: 32
+      kernel_w: 3
+      kernel_h: 3
+      stride: 1
+      pad_w: 1
+      pad_h: 1
+      weight_filler {
+        type: "gaussian"
+        std: 0.1
+      }
+      bias_filler {
+        type: "constant"
+        value: 0
+    }
+  }
+}
+
+layer {
+	bottom: "sum8"
+	bottom: "conv9"
+	top: "sum9"
+	name: "sum9"
+	type: "Eltwise"
+	eltwise_param {
+      operation: SUM
+    }
+}
+
+layer {
+	top: "sum9_relu"
+	bottom: "sum9"
+	name: "sum9_relu"
+	type: "PReLU"
+}
+
+layer {
+	bottom: "sum9_relu"
+	top: "conv10"
+	name: "conv10"
+	type: "Convolution"
+	param {
+      lr_mult: 1
+    }
+    param {
+      lr_mult: 0.1
+    }
+    convolution_param {
+      num_output: 32
+      kernel_w: 3
+      kernel_h: 3
+      stride: 1
+      pad_w: 1
+      pad_h: 1
+      weight_filler {
+        type: "gaussian"
+        std: 0.1
+      }
+      bias_filler {
+        type: "constant"
+        value: 0
+    }
+  }
+}
+
+layer {
+	bottom: "sum9"
+	bottom: "conv10"
+	top: "sum10"
+	name: "sum10"
+	type: "Eltwise"
+	eltwise_param {
+      operation: SUM
+    }
+}
+
+layer {
+	top: "sum10_relu"
+	bottom: "sum10"
+	name: "sum10_relu"
+	type: "PReLU"
+}
+
+layer {
+	bottom: "sum10_relu"
+	top: "convfinal"
+	name: "convfinal"
+	type: "Convolution"
+	param {
+      lr_mult: 1
+    }
+    param {
+      lr_mult: 0.1
+    }
+    convolution_param {
+      num_output: 3
+      kernel_size: 1
+      stride: 1
+      pad: 0
+      weight_filler {
+        type: "gaussian"
+        std: 0.1
+      }
+      bias_filler {
+        type: "constant"
+        value: 0
+    }
+  }
+}
+
+layer {
+	bottom: "data"
+	bottom: "convfinal"
+	top: "res2"
+	name: "res2"
+	type: "Eltwise"
+	eltwise_param {
+      operation: SUM
+    }
+}
