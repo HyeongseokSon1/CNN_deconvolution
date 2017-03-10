@@ -7,10 +7,10 @@ Tested OS: Ubuntu 14.04<br>
 Installation procedure:<br>
 
 1. build caffe <br>
-- $ cd caffe <br>
-- modify parameters and paths in Makefile.config <br>
-- $ make all caffe <br>
-- $ make matcaffe <br>
+$ cd caffe <br>
+-modify parameters and paths in Makefile.config <br>
+$ make all caffe <br>
+$ make matcaffe <br>
 2. set the path of matcaffe in demo.m <br>
 3. run demo.m <br>
 * This code includes only a test function.
