@@ -20,8 +20,7 @@ Hyeongseok Son (sonhs@postech.ac.kr)
 
 ## Citation
 Cite our papers if you find this software useful.<br>
-1. Hyeongseok Son, Seungyong Lee, "[Fast Non-blind Deconvolution via Regularized Residual Networks with Long/Short Skip-Connections]
-(http://cg.postech.ac.kr/research/cnn_deconvolution/)", IEEE International Conference on Computational Photography (ICCP) 2017, 2017. 
+1. Hyeongseok Son, Seungyong Lee, "[Fast Non-blind Deconvolution via Regularized Residual Networks with Long/Short Skip-Connections](http://cg.postech.ac.kr/research/cnn_deconvolution/)", IEEE International Conference on Computational Photography (ICCP) 2017, 2017. 
 
 
 
